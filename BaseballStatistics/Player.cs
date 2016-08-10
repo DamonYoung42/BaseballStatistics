@@ -31,8 +31,35 @@ namespace BaseballStatistics
 
         public void AddPlayerStats()
         {
-            stats = new double[] { 40, 13, 5, 16 };
+            stats = new double[4];
+
+            for (int i=0; i < stats.Length; i++)
+            {
+                switch (i)
+                {
+                    case 0:
+                        Console.WriteLine("Enter number of singles:");
+                        break;                        
+                    case 1:
+                        Console.WriteLine("Enter number of doubles:");
+                        break;
+                    case 2:
+                        Console.WriteLine("Enter number of triples:");
+                        break;
+                    case 3:
+                        Console.WriteLine("Enter number of home runs:");
+                        break;
+                }
+
+                stats[i] = Convert.ToDouble(Console.ReadLine());
+            }
+
+            
         }
 
+        public string GetPlayerName()
+        {
+            return this.name;
+        }
     }
 }

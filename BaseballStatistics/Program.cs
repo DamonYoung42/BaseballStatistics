@@ -15,10 +15,8 @@ namespace BaseballStatistics
             Console.WriteLine("Enter a baseball player's name:");
             player = new Player(Console.ReadLine());
             player.AddPlayerStats();
-            Console.WriteLine(player.calculateSluggingPercentage());
-            Console.ReadLine();
-                           
-
+            Console.WriteLine("{0}'s slugging percentage is {1:.000}", player.GetPlayerName(), player.calculateSluggingPercentage());
+            Console.ReadLine();                
     }
     }
 }
