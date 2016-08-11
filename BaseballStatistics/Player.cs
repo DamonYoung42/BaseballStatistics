@@ -10,10 +10,12 @@ namespace BaseballStatistics
     {
         string name;
         double[] stats;
+        List<string> statNames;
 
         public Player(string name)
         {
             this.name = name;
+            this.statNames = new List<string> {"at-bats", "singles", "doubles", "triples", "home runs"};
         }
 
         public double calculateSluggingPercentage()
@@ -35,25 +37,7 @@ namespace BaseballStatistics
 
             for (int i=0; i < stats.Length; i++)
             {
-                switch (i)
-                {
-                    case 0:
-                        Console.WriteLine("Enter number of at-bats:");
-                        break;                        
-                    case 1:
-                        Console.WriteLine("Enter number of singles:");
-                        break;
-                    case 2:
-                        Console.WriteLine("Enter number of doubles:");
-                        break;
-                    case 3:
-                        Console.WriteLine("Enter number of triples:");
-                        break;
-                    case 4:
-                        Console.WriteLine("Enter number of home runs:");
-                        break;
-                }
-
+                Console.WriteLine("Enter number of {0}", this.statNames[i]);
                 stats[i] = Convert.ToDouble(Console.ReadLine());
             }
 
@@ -67,7 +51,13 @@ namespace BaseballStatistics
 
         public string GetPlayerStats()
         {
-            return string.Join("/",this.stats);
+            return string.Join("/", this.stats);
+        }
+
+        public void DisplayPlayerStatistics()
+        {
+            Console.WriteLine("{0}'s slugging percentage (total bases divided by total at-bats) is {1:.000}", this.GetPlayerName(), this.calculateSluggingPercentage());
+
         }
     }
 }
