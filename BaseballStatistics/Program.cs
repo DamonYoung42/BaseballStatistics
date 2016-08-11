@@ -22,7 +22,7 @@ namespace BaseballStatistics
                 {
                     player = new Player(userInput);
                     player.AddPlayerStats();
-                    Console.WriteLine("{0}'s slugging percentage is {1:.000}", player.GetPlayerName(), player.calculateSluggingPercentage());
+                    Console.WriteLine("{0}'s slugging percentage (total bases divided by total at-bats) is {1:.000}", player.GetPlayerName(), player.calculateSluggingPercentage());
                     roster.Add(player);
                 }
                 else
